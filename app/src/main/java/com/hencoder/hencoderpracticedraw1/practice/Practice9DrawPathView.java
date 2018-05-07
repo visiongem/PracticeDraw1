@@ -12,16 +12,23 @@ import android.view.View;
 
 public class Practice9DrawPathView extends View {
 
+    private Paint mPaint;
+    private Path mPath;
+
     public Practice9DrawPathView(Context context) {
-        super(context);
+        super(context, null);
     }
 
     public Practice9DrawPathView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPath = new Path();
     }
 
     public Practice9DrawPathView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPath = new Path();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -30,13 +37,11 @@ public class Practice9DrawPathView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawPath() 方法画心形
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        Path path = new Path();
 
-        path.addArc(150, 50, 300, 200, -225, 225);
-        path.arcTo(300, 50, 450, 200, -180, 225, false);
-        path.lineTo(300, 325);
+        mPath.addArc(150, 50, 300, 200, -225, 225);
+        mPath.arcTo(300, 50, 450, 200, -180, 225, false);
+        mPath.lineTo(300, 325);
 
-        canvas.drawPath(path, paint);
+        canvas.drawPath(mPath, mPaint);
     }
 }

@@ -11,16 +11,20 @@ import android.view.View;
 
 public class Practice8DrawArcView extends View {
 
+    private Paint mPaint;
+
     public Practice8DrawArcView(Context context) {
-        super(context);
+        super(context,null);
     }
 
     public Practice8DrawArcView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     public Practice8DrawArcView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -29,12 +33,11 @@ public class Practice8DrawArcView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawArc() 方法画弧形和扇形
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        canvas.drawArc(100, 100, 550, 420, -110, 100, true, paint);
+        canvas.drawArc(200, 100, 520, 300, -110, 100, true, mPaint);
 
-        canvas.drawArc(100, 100, 550, 420, 20, 140, false, paint);
+        canvas.drawArc(200, 100, 520, 300, 20, 140, false, mPaint);
 
-        paint.setStyle(Paint.Style.STROKE);
-        canvas.drawArc(100, 100, 550, 420, 180, 60, false, paint);
+        mPaint.setStyle(Paint.Style.STROKE);
+        canvas.drawArc(200, 100, 520, 300, 180, 60, false, mPaint);
     }
 }

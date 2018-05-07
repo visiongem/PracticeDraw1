@@ -9,16 +9,20 @@ import android.view.View;
 
 public class Practice4DrawPointView extends View {
 
+    private Paint mPaint;
+
     public Practice4DrawPointView(Context context) {
-        super(context);
+        super(context, null);
     }
 
     public Practice4DrawPointView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     public Practice4DrawPointView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     @Override
@@ -28,12 +32,14 @@ public class Practice4DrawPointView extends View {
 //        练习内容：使用 canvas.drawPoint() 方法画点
 //        一个圆点，一个方点
 //        圆点和方点的切换使用 paint.setStrokeCap(cap)：`ROUND` 是圆点，`BUTT` 或 `SQUARE` 是方点
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setStrokeCap(Paint.Cap.ROUND);
-        paint.setStrokeWidth(50);
-        canvas.drawPoint(200, 200, paint);
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
+        mPaint.setStrokeWidth(50);
+        canvas.drawPoint(250, 200, mPaint);
 
-        paint.setStrokeCap(Paint.Cap.SQUARE);
-        canvas.drawPoint(500, 200, paint);
+        mPaint.setStrokeCap(Paint.Cap.BUTT);
+        canvas.drawPoint(500, 200, mPaint);
+
+        mPaint.setStrokeCap(Paint.Cap.SQUARE);
+        canvas.drawPoint(500, 300, mPaint);
     }
 }

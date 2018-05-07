@@ -11,16 +11,20 @@ import android.view.View;
 
 public class Practice7DrawRoundRectView extends View {
 
+    private Paint mPaint;
+
     public Practice7DrawRoundRectView(Context context) {
-        super(context);
+        super(context, null);
     }
 
     public Practice7DrawRoundRectView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     public Practice7DrawRoundRectView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -29,7 +33,6 @@ public class Practice7DrawRoundRectView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawRoundRect() 方法画圆角矩形
-        Paint paint = new Paint();
-        canvas.drawRoundRect(200, 100, 500, 300, 60, 60, paint);
+        canvas.drawRoundRect(220, 100, 520, 260, 50, 50, mPaint);
     }
 }

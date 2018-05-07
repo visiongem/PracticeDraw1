@@ -11,16 +11,20 @@ import android.view.View;
 
 public class Practice5DrawOvalView extends View {
 
+    private Paint mPaint;
+
     public Practice5DrawOvalView(Context context) {
-        super(context);
+        super(context, null);
     }
 
     public Practice5DrawOvalView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     public Practice5DrawOvalView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -29,7 +33,6 @@ public class Practice5DrawOvalView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawOval() 方法画椭圆
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        canvas.drawOval(200, 100, 600, 300, paint);
+        canvas.drawOval(220, 200, 500, 350, mPaint);
     }
 }

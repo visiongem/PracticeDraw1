@@ -13,16 +13,25 @@ import android.view.View;
 
 public class Practice10HistogramView extends View {
 
+    private String[] textStr = {"Froyo", "GB", "ICS", "JB", "KitKat", "L", "M"};
+    private int[] textData = {2, 8, 10, 100, 200, 280, 150};
+    private Paint mPaint;
+
+    private static final int DEFAULT_BOTTOM = 360;
+    private static final int DEFAULT_GREEN_WIDTH = 60;
+
     public Practice10HistogramView(Context context) {
-        super(context);
+        super(context, null);
     }
 
     public Practice10HistogramView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     public Practice10HistogramView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -32,19 +41,30 @@ public class Practice10HistogramView extends View {
 
 //        综合练习
 //        练习内容：使用各种 Canvas.drawXXX() 方法画直方图
-        Paint paint = new Paint();
-        paint.setColor(Color.WHITE);
-        paint.setStyle(Paint.Style.STROKE);
+        mPaint.setColor(Color.WHITE);
+        mPaint.setStyle(Paint.Style.STROKE);
 
         Path path = new Path();
         path.moveTo(80, 20);
-        path.lineTo(80, 360);
+        path.lineTo(80, DEFAULT_BOTTOM);
         path.rLineTo(600, 0);
 
-        canvas.drawPath(path, paint);
+        canvas.drawPath(path, mPaint);
 
-        paint.setColor(Color.GREEN);
-        paint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(90, 358, 140, 360, paint);
+        int firstX = 90;
+        int intervalWidth = 20;
+        int textHeight = 375;
+
+        mPaint.setColor(Color.GREEN);
+        mPaint.setStyle(Paint.Style.FILL);
+
+        for (int index = 0; index < textData.length; index++) {
+            canvas.drawRect(firstX + DEFAULT_GREEN_WIDTH * index + index * intervalWidth, DEFAULT_BOTTOM - textData[index], firstX + index * intervalWidth + (index + 1) * DEFAULT_GREEN_WIDTH, DEFAULT_BOTTOM, mPaint);
+        }
+
+        mPaint.setColor(Color.WHITE);
+        for (int index = 0; index < textStr.length; index++) {
+            canvas.drawText(textStr[index], (float) (firstX + (index * intervalWidth) + (index * DEFAULT_GREEN_WIDTH) + (0.5 * (DEFAULT_GREEN_WIDTH - mPaint.measureText(textStr[index])))), textHeight, mPaint);
+        }
     }
 }

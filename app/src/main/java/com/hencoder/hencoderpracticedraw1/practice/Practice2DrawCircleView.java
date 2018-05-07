@@ -10,16 +10,21 @@ import android.view.View;
 
 public class Practice2DrawCircleView extends View {
 
+    private Paint mPaint;
+
     public Practice2DrawCircleView(Context context) {
-        super(context);
+        super(context, null);
+
     }
 
     public Practice2DrawCircleView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     public Practice2DrawCircleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     @Override
@@ -28,21 +33,21 @@ public class Practice2DrawCircleView extends View {
 
 //        练习内容：使用 canvas.drawCircle() 方法画圆
 //        一共四个圆：1.实心圆 2.空心圆 3.蓝色实心圆 4.线宽为 20 的空心圆
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.BLACK);
 
-        canvas.drawCircle(250, 120, 100, paint);
+        mPaint.setColor(Color.BLACK);
 
-        paint.setStyle(Paint.Style.STROKE);
-        canvas.drawCircle(500, 120, 100, paint);
+        canvas.drawCircle(220, 120, 80, mPaint);
 
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(Color.CYAN);
-        canvas.drawCircle(250, 350, 100, paint);
+        mPaint.setStyle(Paint.Style.STROKE);
+        canvas.drawCircle(480, 120, 80, mPaint);
 
-        paint.setColor(Color.BLACK);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(20);
-        canvas.drawCircle(500, 350, 100, paint);
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setColor(Color.CYAN);
+        canvas.drawCircle(220, 320, 80, mPaint);
+
+        mPaint.setColor(Color.BLACK);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(40);
+        canvas.drawCircle(480, 320, 80, mPaint);
     }
 }
