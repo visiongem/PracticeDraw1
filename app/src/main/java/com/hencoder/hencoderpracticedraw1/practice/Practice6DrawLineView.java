@@ -31,7 +31,7 @@ public class Practice6DrawLineView extends View {
 
 //        练习内容：使用 canvas.drawLine() 方法画直线
         mPaint.setStrokeWidth(10);
-        canvas.drawLine(200, 100, 400, 300, mPaint);
+        canvas.drawLine(300, 200, 600, 360, mPaint);
 
     }
 }

@@ -33,6 +33,6 @@ public class Practice7DrawRoundRectView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawRoundRect() 方法画圆角矩形
-        canvas.drawRoundRect(220, 100, 520, 260, 50, 50, mPaint);
+        canvas.drawRoundRect(320, 200, 620, 360, 50, 50, mPaint);
     }
 }

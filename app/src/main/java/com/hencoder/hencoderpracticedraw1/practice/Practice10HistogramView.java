@@ -17,8 +17,8 @@ public class Practice10HistogramView extends View {
     private int[] textData = {2, 8, 10, 100, 200, 280, 150};
     private Paint mPaint;
 
-    private static final int DEFAULT_BOTTOM = 360;
-    private static final int DEFAULT_GREEN_WIDTH = 60;
+    private static final int DEFAULT_BOTTOM = 660;
+    private static final int DEFAULT_GREEN_WIDTH = 80;
 
     public Practice10HistogramView(Context context) {
         super(context, null);
@@ -45,15 +45,15 @@ public class Practice10HistogramView extends View {
         mPaint.setStyle(Paint.Style.STROKE);
 
         Path path = new Path();
-        path.moveTo(80, 20);
-        path.lineTo(80, DEFAULT_BOTTOM);
-        path.rLineTo(600, 0);
+        path.moveTo(160, 60);
+        path.lineTo(160, DEFAULT_BOTTOM);
+        path.rLineTo(800, 0);
 
         canvas.drawPath(path, mPaint);
 
-        int firstX = 90;
+        int firstX = 170;
         int intervalWidth = 20;
-        int textHeight = 375;
+        int textHeight = 675;
 
         mPaint.setColor(Color.GREEN);
         mPaint.setStyle(Paint.Style.FILL);

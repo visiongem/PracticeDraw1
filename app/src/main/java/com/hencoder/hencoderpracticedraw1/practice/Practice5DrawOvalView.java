@@ -33,6 +33,6 @@ public class Practice5DrawOvalView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawOval() 方法画椭圆
-        canvas.drawOval(220, 200, 500, 350, mPaint);
+        canvas.drawOval(320, 200, 600, 350, mPaint);
     }
 }

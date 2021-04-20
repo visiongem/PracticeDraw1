@@ -36,18 +36,18 @@ public class Practice2DrawCircleView extends View {
 
         mPaint.setColor(Color.BLACK);
 
-        canvas.drawCircle(220, 120, 80, mPaint);
+        canvas.drawCircle(230, 180, 150, mPaint);
 
         mPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawCircle(480, 120, 80, mPaint);
+        canvas.drawCircle(700, 180, 150, mPaint);
 
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(Color.CYAN);
-        canvas.drawCircle(220, 320, 80, mPaint);
+        canvas.drawCircle(230, 620, 150, mPaint);
 
         mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(40);
-        canvas.drawCircle(480, 320, 80, mPaint);
+        mPaint.setStrokeWidth(50);
+        canvas.drawCircle(700, 620, 150, mPaint);
     }
 }
